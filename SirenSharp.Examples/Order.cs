@@ -2,55 +2,37 @@
 {
     using System.Collections.Generic;
 
-    public class Order : IHypermediaEntity
+    using SirenSharp.Mvc;
+
+    public class Order : SirenEntity
     {
-        public int OrderId { get; set; }
-
-        public int OrderNumber { get; set; }
-
-        public int ItemCount { get; set; }
-
-        public string Status { get; set; }
-
-        public int CustomerId { get; set; }
-
-        public IEnumerable<string> GetSirenClasses()
+        public Order()
         {
-            return new List<string>() { "order" };
-        }
+            this.AddClass("order");
 
-        public IEnumerable<SubEntity> GetSirenSubEntities()
-        {
-            return null;
-        }
+            this.InitializeProperties();
+            this.Properties.OrderId = 123;
+            this.Properties.OrderNumber = 384573;
+            this.Properties.ItemCount = 4;
+            this.Properties.Status = "Active";
+            this.Properties.CustomerId = 2;
 
-        public IEnumerable<Link> GetSirenLinks()
-        {
-            return new List<Link>()
+            this.AddLink(new SirenLink(HyperMediaHelper.GenerateAbsoluteUrl("orders/" + (this.Properties.OrderId - 1)), "previous"));
+            this.AddLink(new SirenLink(HyperMediaHelper.GenerateAbsoluteUrl("orders/" + this.Properties.OrderId), "self"));
+            this.AddLink(new SirenLink(HyperMediaHelper.GenerateAbsoluteUrl("orders/" + (this.Properties.OrderId + 1)), "next"));
+
+            this.AddAction(new SirenAction("add-item", HyperMediaHelper.GenerateAbsoluteUrl("orders/" + this.Properties.OrderId + "/items"))
             {
-                new Link(new System.Uri("http://api.x.io/orders/" + (OrderId - 1)), "previous"),
-                new Link(new System.Uri("http://api.x.io/orders/" + OrderId), "self"),
-                new Link(new System.Uri("http://api.x.io/orders/" + (OrderId + 1)), "next")
-            };
-        }
-
-        public IEnumerable<Action> GetSirenActions()
-        {
-            return new List<Action>()
-            {
-                new Action("add-item", new System.Uri("http://api.x.io/orders/" + OrderId + "/items"))
-                {
-                    Title = "Add Item",
-                    Method = HttpVerbs.Post,
-                    Type = "application/x-www-form-urlencoded",
-                    Fields = new List<Field>()
+                Title = "Add Item",
+                Method = HttpVerbs.Post,
+                Type = "application/x-www-form-urlencoded",
+                Fields = new List<SirenField>()
                     {
-                        new Field("orderNumber") { Type = FieldTypes.Hidden, Value = OrderId },
-                        new Field("productCode") { Type = FieldTypes.Text },
-                        new Field("quantity") { Type = FieldTypes.Number }
+                        new SirenField("orderNumber") { Type = FieldTypes.Hidden, Value = this.Properties.OrderId },
+                        new SirenField("productCode") { Type = FieldTypes.Text },
+                        new SirenField("quantity") { Type = FieldTypes.Number }
                     }
-                }
-            };
+            });
         }
     }
 }

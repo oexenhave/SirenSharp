@@ -67,6 +67,6 @@
         /// to point to the target URI. Entities should include a link rel to self. In JSON Siren, this is 
         /// represented as "links": [{ "rel": ["self"], "href": "http://api.x.io/orders/1234" }] Optional.
         /// </remarks>
-        public IEnumerable<Link> Links { get; set; }
+        public IEnumerable<SirenLink> Links { get; set; }
     }
 }

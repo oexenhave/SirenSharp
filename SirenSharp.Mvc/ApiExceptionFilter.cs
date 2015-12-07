@@ -9,22 +9,11 @@ namespace SirenSharp.Mvc
 
     public class ApiExceptionFilter : IExceptionFilter
     {
-        public ApiExceptionFilter()
-        {
-            AllowMultiple = false;
-        }
-
-        public bool AllowMultiple { get; private set; }
+        public bool AllowMultiple => false;
 
         public Task ExecuteExceptionFilterAsync(HttpActionExecutedContext actionExecutedContext, CancellationToken cancellationToken)
         {
-            if (actionExecutedContext.Exception is ParameterInvalidException)
-            {
-                actionExecutedContext.Response = new HttpResponseMessage(HttpStatusCode.BadRequest) { Content = new ApiContent<Exception>(new Exception((int)ErrorCode.ParameterInvalid, actionExecutedContext.Exception.Message)) };
-                return Task.Factory.StartNew(() => { }, cancellationToken);                
-            }
-
-            actionExecutedContext.Response = new HttpResponseMessage(HttpStatusCode.InternalServerError) { Content = new ApiContent<Exception>(new Exception(0, actionExecutedContext.Exception.Message)) };
+            actionExecutedContext.Response = actionExecutedContext.Request.CreateResponse(HttpStatusCode.InternalServerError, new SirenException(actionExecutedContext.Exception));
             return Task.Factory.StartNew(() => { }, cancellationToken);
         }
     }

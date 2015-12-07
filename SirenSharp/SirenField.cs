@@ -6,13 +6,13 @@
     /// <summary>
     /// Fields represent controls inside of actions.
     /// </summary>
-    public class Field
+    public class SirenField
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Field"/> class with required properties.
+        /// Initializes a new instance of the <see cref="SirenField"/> class with required properties.
         /// </summary>
         /// <param name="name">Name of the field</param>
-        public Field(string name)
+        public SirenField(string name)
         {
             this.Name = name;
             this.Type = FieldTypes.Text;
@@ -20,11 +20,11 @@
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Field"/> class with required properties.
+        /// Initializes a new instance of the <see cref="SirenField"/> class with required properties.
         /// </summary>
         /// <param name="name">Name of the field</param>
         /// <param name="@type">Type of the field</param>
-        public Field(string name, FieldTypes @type)
+        public SirenField(string name, FieldTypes @type)
         {
             this.Name = name;
             this.Type = @type;

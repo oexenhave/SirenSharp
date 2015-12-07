@@ -9,14 +9,14 @@
     /// <summary>
     /// Actions show available behaviors an entity exposes.
     /// </summary>
-    public class Action
+    public class SirenAction
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Action"/> class with required properties.
+        /// Initializes a new instance of the <see cref="SirenAction"/> class with required properties.
         /// </summary>
         /// <param name="name">Name of the action</param>
         /// <param name="href">Hypermedia reference</param>
-        public Action(string name, Uri href)
+        public SirenAction(string name, Uri href)
         {
             this.Name = name;
             this.Class = null;
@@ -28,11 +28,11 @@
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Action"/> class with required properties.
+        /// Initializes a new instance of the <see cref="SirenAction"/> class with required properties.
         /// </summary>
         /// <param name="name">Name of the action</param>
         /// <param name="href">Hypermedia reference</param>
-        public Action(string name, string href)
+        public SirenAction(string name, string href)
         {
             this.Name = name;
             this.Class = null;
@@ -104,6 +104,6 @@
         /// A collection of fields, expressed as an array of objects in JSON Siren 
         /// such as { "fields" : [{ ... }] }. See Fields. Optional.
         /// </remarks>
-        public IEnumerable<Field> Fields { get; set; }
+        public IEnumerable<SirenField> Fields { get; set; }
     }
 }
