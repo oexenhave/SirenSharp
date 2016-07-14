@@ -9,7 +9,7 @@
 
         public dynamic Properties { get; private set; }
 
-        public IList<SubEntity> Entities { get; private set; }
+        public IList<SirenSubEntity> Entities { get; private set; }
 
         public IList<SirenLink> Links { get; private set; }
 
@@ -17,12 +17,12 @@
 
         public string Title => null;
 
-        protected void InitializeProperties()
+        public void InitializeProperties()
         {
             this.Properties = new ExpandoObject();
         }
 
-        protected void AddClass(string @class)
+        public void AddClass(string @class)
         {
             if (this.Class == null)
             {
@@ -32,17 +32,17 @@
             this.Class.Add(@class);
         }
 
-        protected void AddEntities(SubEntity entity)
+        public void AddEntities(SirenSubEntity entity)
         {
             if (this.Entities == null)
             {
-                this.Entities = new List<SubEntity>();
+                this.Entities = new List<SirenSubEntity>();
             }
 
             this.Entities.Add(entity);
         }
 
-        protected void AddLink(SirenLink link)
+        public void AddLink(SirenLink link)
         {
             if (this.Links == null)
             {
@@ -52,14 +52,14 @@
             this.Links.Add(link);
         }
 
-        protected void AddAction(SirenAction action)
+        public void AddAction(SirenAction action)
         {
             if (this.Actions == null)
             {
                 this.Actions = new List<SirenAction>();
             }
 
-            this.Actions = new List<SirenAction>();
+            this.Actions.Add(action);
         }
     }
 }

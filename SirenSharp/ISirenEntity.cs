@@ -1,4 +1,6 @@
-﻿namespace SirenSharp
+﻿using Newtonsoft.Json;
+
+namespace SirenSharp
 {
     using System.Collections.Generic;
 
@@ -18,11 +20,13 @@
         /// Gets a list of content classes. It describes the nature of an entity's content based on the current representation. 
         /// Possible values are implementation-dependent and should be documented. MUST be an array of strings. Optional.
         /// </summary>
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         IList<string> Class { get; }
 
         /// <summary>
         /// Gets a set of key-value pairs that describe the state of an entity. Optional.
         /// </summary>
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore, ReferenceLoopHandling = ReferenceLoopHandling.Ignore)]
         dynamic Properties { get; }
 
         /// <summary>
@@ -31,23 +35,27 @@
         /// representation that contains all the characteristics of a typical entity. One difference is that a sub-entity MUST contain
         /// a rel attribute to describe its relationship to the parent entity. Optional.
         /// </summary>
-        IList<SubEntity> Entities { get; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore, ReferenceLoopHandling = ReferenceLoopHandling.Ignore)]
+        IList<SirenSubEntity> Entities { get; }
 
         /// <summary>
         /// Gets a collection of items that describe navigational links, distinct from entity relationships. Link
         /// items should contain a rel attribute to describe the relationship and an href attribute to point to 
         /// the target URI. Optional.
         /// </summary>
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         IList<SirenLink> Links { get; }
 
         /// <summary>
         /// Gets a collection of action objects. Optional.
         /// </summary>
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         IList<SirenAction> Actions { get; }
 
         /// <summary>
         /// Gets a descriptive text about the entity. Optional.
         /// </summary>
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         string Title { get; }
     }
 }

@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30110.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SirenSharp", "SirenSharp\SirenSharp.csproj", "{31DB25C2-C8D3-49C6-90FD-AD9ED8F16ECB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SirenSharp.Examples", "SirenSharp.Examples\SirenSharp.Examples.csproj", "{FE28855D-45EC-46DB-9015-2BABC22EA53E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SirenSharp.Mvc", "SirenSharp.Mvc\SirenSharp.Mvc.csproj", "{54662F44-4956-4FB2-8A26-75AB236D3F5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SirenSharp.WebApiSample", "SirenSharp.WebApiSample\SirenSharp.WebApiSample.csproj", "{B8EA784A-DD72-488D-8720-4490BAB5C81B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{54662F44-4956-4FB2-8A26-75AB236D3F5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54662F44-4956-4FB2-8A26-75AB236D3F5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54662F44-4956-4FB2-8A26-75AB236D3F5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8EA784A-DD72-488D-8720-4490BAB5C81B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8EA784A-DD72-488D-8720-4490BAB5C81B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8EA784A-DD72-488D-8720-4490BAB5C81B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8EA784A-DD72-488D-8720-4490BAB5C81B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

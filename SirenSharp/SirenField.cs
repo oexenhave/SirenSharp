@@ -48,6 +48,7 @@
         /// depend on the value of the action's type attribute. See type under Actions, 
         /// above. Optional.
         /// </remarks>
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         [JsonConverter(typeof(StringEnumConverter))]
         public FieldTypes Type { get; set; }
 
@@ -57,6 +58,7 @@
         /// <remarks>
         /// A value assigned to the field. Optional.
         /// </remarks>
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public object Value { get; set; }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace SirenSharp
+﻿using Newtonsoft.Json;
+
+namespace SirenSharp
 {
     using System;
     using System.Collections.Generic;
@@ -40,6 +42,7 @@
         /// Gets or sets a class descriptor. It describes aspects of the link based on the current representation. 
         /// Possible values are implementation-dependent and should be documented. MUST be an array of strings. Optional.
         /// </summary>
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string Class { get; set; }
 
         /// <summary>
@@ -50,11 +53,13 @@
         /// <summary>
         /// Gets or sets a text describing the nature of a link. Optional.
         /// </summary>
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string Title { get; set; }
 
         /// <summary>
         /// Gets or sets the type. It defines media type of the linked resource, per Web Linking (RFC5988). Optional.
         /// </summary>
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string Type { get; set; }
     }
 }

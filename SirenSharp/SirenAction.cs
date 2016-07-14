@@ -37,7 +37,7 @@
             this.Name = name;
             this.Class = null;
             this.Method = HttpVerbs.Get;
-            this.Href = new Uri(href, UriKind.Relative);
+            this.Href = new Uri(href, UriKind.RelativeOrAbsolute);
             this.Title = null;
             this.Type = "application/x-www-form-urlencoded";
             this.Fields = null;
@@ -59,6 +59,7 @@
         /// Possible values are implementation-dependent and should be documented. 
         /// MUST be an array of strings. Optional.
         /// </remarks>
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public IEnumerable<string> Class { get; set; }
 
         /// <summary>
@@ -70,6 +71,7 @@
         /// extended. If this attribute is omitted, GET should be assumed. Optional.
         /// </remarks>
         [JsonConverter(typeof(StringEnumConverter))]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public HttpVerbs Method { get; set; }
 
         /// <summary>
@@ -86,6 +88,7 @@
         /// <remarks>
         /// Descriptive text about the action. Optional.
         /// </remarks>
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string Title { get; set; }
 
         /// <summary>
@@ -95,6 +98,7 @@
         /// The encoding type for the request. When omitted and the fields attribute exists, 
         /// the default value is application/x-www-form-urlencoded. Optional.
         /// </remarks>
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string Type { get; set; }
 
         /// <summary>
@@ -104,6 +108,7 @@
         /// A collection of fields, expressed as an array of objects in JSON Siren 
         /// such as { "fields" : [{ ... }] }. See Fields. Optional.
         /// </remarks>
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public IEnumerable<SirenField> Fields { get; set; }
     }
 }
