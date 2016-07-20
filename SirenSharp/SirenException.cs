@@ -28,7 +28,6 @@
         {
             this.AddClass("exception");
 
-            this.InitializeProperties();
             this.Properties.Message = exception.Message;
             this.Properties.Type = exception.GetType();
             this.Properties.StackTrace = exception.StackTrace;

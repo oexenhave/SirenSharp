@@ -10,7 +10,6 @@
         {
             this.AddClass("order");
 
-            this.InitializeProperties();
             this.Properties.OrderId = 123;
             this.Properties.OrderNumber = 384573;
             this.Properties.ItemCount = 4;

@@ -5,9 +5,14 @@
 
     public class SirenEntity : ISirenEntity
     {
+        public SirenEntity()
+        {
+            this.Properties = new ExpandoObject();
+        }
+
         public IList<string> Class { get; private set; }
 
-        public dynamic Properties { get; private set; }
+        public dynamic Properties { get; set; }
 
         public IList<SirenSubEntity> Entities { get; private set; }
 
@@ -16,11 +21,6 @@
         public IList<SirenAction> Actions { get; private set; }
 
         public string Title => null;
-
-        public void InitializeProperties()
-        {
-            this.Properties = new ExpandoObject();
-        }
 
         public void AddClass(string @class)
         {
